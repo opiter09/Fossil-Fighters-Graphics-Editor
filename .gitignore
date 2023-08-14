@@ -1,0 +1,8 @@
+
+*.nclr
+*.ncgr
+*.nscr
+*.bin
+motion_*
+image_*
+KASEKI*

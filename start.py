@@ -62,7 +62,7 @@ if (os.path.exists("motion_" + folder) == False):
                             except KeyError:
                                 convert.toNitro("motion_" + folder + val + "/", os.path.join(root2, file2), file2, None,
                                     palList, imgList, False)
-        shutil.rmtree(folder + "data/motion/" + val + "/bin/")
+        os.rename(folder + "data/motion/" + val + "/bin/", "motion_" + folder + val + "/bin/")
 
 if (os.path.exists("image_" + folder) == False):        
     os.mkdir("image_" + folder)
@@ -103,7 +103,7 @@ if (os.path.exists("image_" + folder) == False):
                         except KeyError:
                             convert.toNitro("image_" + folder + file + "/", os.path.join(root2, file2), file2, None,
                                 palList, imgList, True)
-    shutil.rmtree(folder + "data/image/bin/")
+    os.rename(folder + "data/image/bin/", "image_" + folder + "bin/")
 
         
     

@@ -19,7 +19,7 @@ def mmsContribute(file, data, com):
     new.write("Palette ARC: " + name + "\n")
     new.write("Palettes:" + "\n")
     for j in range(palCount):
-        new.write("\t" + str(int.from_bytes(data[(palStart + j * 4):(4 + palStart + j * 4)], "little")) + ".bin" + "\n")
+        new.write("\t" + str(int.from_bytes(data[(palStart + j * 4):(4 + palStart + j * 4)], "little")) + ".nclr" + "\n")
         palList.append(str(int.from_bytes(data[(palStart + j * 4):(4 + palStart + j * 4)], "little")) + ".bin")
     name = ""
     i = imgName
@@ -29,7 +29,7 @@ def mmsContribute(file, data, com):
     new.write("Image ARC: " + name + "\n")
     new.write("Images:" + "\n")
     for j in range(imgCount):
-        new.write("\t" + str(int.from_bytes(data[(imgStart + j * 4):(4 + imgStart + j * 4)], "little")) + ".bin" + "\n")
+        new.write("\t" + str(int.from_bytes(data[(imgStart + j * 4):(4 + imgStart + j * 4)], "little")) + ".ncgr" + "\n")
         imgList.append(str(int.from_bytes(data[(imgStart + j * 4):(4 + imgStart + j * 4)], "little")) + ".bin")
     new.write("\n\n")
     new.close()
@@ -55,7 +55,7 @@ def mpmContribute(file, data, com):
     new.write("Palette ARC: " + name + "\n")
     new.write("Palettes:" + "\n")
     for j in range(1):
-        new.write("\t" + str(palIndex) + ".bin" + "\n")
+        new.write("\t" + str(palIndex) + ".nclr" + "\n")
         palList.append(str(palIndex) + ".bin")
     name = ""
     i = imgName
@@ -65,7 +65,7 @@ def mpmContribute(file, data, com):
     new.write("Image ARC: " + name + "\n")
     new.write("Images:" + "\n")
     for j in range(1):
-        new.write("\t" + str(imgIndex) + ".bin" + "\n")
+        new.write("\t" + str(imgIndex) + ".ncgr" + "\n")
         imgList.append(str(imgIndex) + ".bin")
     name = ""
     i = scrName
@@ -76,7 +76,7 @@ def mpmContribute(file, data, com):
         new.write("Screen ARC: " + name + "\n")
         new.write("Screens:" + "\n")
         for j in range(1):
-            new.write("\t" + str(scrIndex) + ".bin" + "\n")
+            new.write("\t" + str(scrIndex) + ".nscr" + "\n")
             scrList.append(str(scrIndex) + ".bin")
         new.write("\n\n")
         new.close()

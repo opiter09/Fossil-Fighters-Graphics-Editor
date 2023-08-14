@@ -1,22 +1,17 @@
 import combo
 import convert
+import finish
 import os
-import shutil
 import subprocess
 import sys
 
-rom = open(sys.argv[1], "rb")
-header = rom.read()[12]
-rom.close()
-if (header == 0x59):
-    game = "ff1"
-elif (header == 0x56):
-    game = "ffc"
+check = 0
 folder = sys.argv[1].split("\\")[-1][0:-4] + "/"
 
 if (os.path.exists(folder) == False):
     subprocess.run([ "dslazy.bat", "UNPACK", sys.argv[1] ])
     os.rename("NDS_UNPACK", folder)
+    check = 1
 
 if (os.path.exists("motion_" + folder) == False):
     os.mkdir("motion_" + folder)
@@ -53,16 +48,18 @@ if (os.path.exists("motion_" + folder) == False):
         for root, dirs, files in os.walk(folder + "data/motion/" + val):
             for file in files:
                 if (file.endswith("_arc.bin") == True) and (file.endswith(".json") == False):
+                    os.mkdir("motion_" + folder + val + "/" + file + "/")
                     subprocess.run(["fftool.exe", os.path.join(root, file) ])
                     for root2, dirs2, files2 in os.walk(folder + "data/motion/" + val + "/bin/" + file):
                         for file2 in files2:
                             try:
-                                convert.toNitro("motion_" + folder + val + "/", os.path.join(root2, file2), file2, screenDict[file2],
-                                    palList, imgList, False)
+                                convert.toNitro("motion_" + folder + val + "/" + file + "/", os.path.join(root2, file2), file2,
+                                    screenDict[file2], palList, imgList, False)
                             except KeyError:
-                                convert.toNitro("motion_" + folder + val + "/", os.path.join(root2, file2), file2, None,
+                                convert.toNitro("motion_" + folder + val + "/" + file + "/", os.path.join(root2, file2), file2, None,
                                     palList, imgList, False)
         os.rename(folder + "data/motion/" + val + "/bin/", "motion_" + folder + val + "/bin/")
+    check = 1
 
 if (os.path.exists("image_" + folder) == False):        
     os.mkdir("image_" + folder)
@@ -104,6 +101,10 @@ if (os.path.exists("image_" + folder) == False):
                             convert.toNitro("image_" + folder + file + "/", os.path.join(root2, file2), file2, None,
                                 palList, imgList, True)
     os.rename(folder + "data/image/bin/", "image_" + folder + "bin/")
+    check = 1
+
+if (check == 0):
+    finish.run()
 
         
     

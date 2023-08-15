@@ -52,7 +52,8 @@ def run(rom):
 
     dv = [ "image_archive", "image_big_archive", "image_cleaning_archive" ]
     if (rom == "ffc"):
-        dv = [ "image_bitmap_archive", "image_credit_archive", "image_map_archive" ]
+        dv = dv + [ "image_bitmap_archive", "image_credit_archive", "image_map_archive", "image_object_archive" ]
+        dv.remove("image_big_archive")
     for val2 in dv:
         for root, dirs, files in os.walk("image_" + folder + "/" + val2):
             for file in files:

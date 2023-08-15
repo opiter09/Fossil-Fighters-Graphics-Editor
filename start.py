@@ -126,7 +126,7 @@ if (os.path.exists("image_" + folder) == False):
     for root, dirs, files in os.walk(folder + "data/image"):
         for file in files:
             if (file.endswith("_archive") == True) and (file.endswith(".json") == False):
-                forbidden = ["image_archive", "image_cleaning_archive", "image_big_archive", "image_object_archive"]
+                forbidden = ["image_big_archive"]
                 if (rom == "ff1") or (file not in forbidden):
                     os.mkdir("image_" + folder + file)
                     subprocess.run(["fftool.exe", os.path.join(root, file) ])
@@ -139,11 +139,6 @@ if (os.path.exists("image_" + folder) == False):
                                 convert.toNitro("image_" + folder + file + "/", os.path.join(root2, file2), file2, None,
                                     palDict[file], imgDict[file], True)
     os.rename(folder + "data/image/bin/", "image_" + folder + "bin/")
-    if (rom == "ff1"):
-        os.remove("image_" + folder + "bin/image_archive/meta.json")
-        shutil.copyfile("json/meta_image_ff1.json", "image_" + folder + "bin/image_archive/meta.json")
-        os.remove("image_" + folder + "bin/image_cleaning_archive/meta.json")
-        shutil.copyfile("json/meta_cleaning_ff1.json", "image_" + folder + "bin/image_cleaning_archive/meta.json")
     check = 1
 
 if (check == 0):

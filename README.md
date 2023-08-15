@@ -6,7 +6,8 @@ your ROM onto start.exe again, and as long as the three folders it made are stil
 To download this, if you are confused, press the Green "Code" button in the top right, then choose "Download ZIP."
 
 NOTE: None of the graphics have names or anything, they're just numbers. To make things a little easier, however, every directory has a file named "combo.txt," which
-lists all of the non-arc files in motion and image, along with what sprites and palettes they use. This should make matching things up much easier.
+lists all of the non-arc files in motion and image, along with what sprites and palettes they use. You can thus match things up this way, but remember the golden rule:
+if you can't tell what it is, don't mess with it.
 
 # Source Code:
 - NitroPaint:  https://github.com/Garhoogin/NitroPaint/releases

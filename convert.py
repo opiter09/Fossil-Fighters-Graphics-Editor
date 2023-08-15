@@ -4,7 +4,7 @@ def toNitro(folder, path, file, screen, palList, imgList, image):
     f = open(path, "rb")
     data = f.read()
     f.close()
-    if (screen != None) and (len(data) > 0x200):
+    if (screen != None):
         new = open(folder + file.split(".")[0] + ".nscr", "wb")
         new.close()
         new = open(folder + file.split(".")[0] + ".nscr", "ab")
@@ -22,7 +22,7 @@ def toNitro(folder, path, file, screen, palList, imgList, image):
         new.write((size).to_bytes(4, "little"))
         new.write(data)
         new.close()
-    elif (file in imgList) and (len(data) > 0x200):
+    elif (file in imgList):
         new = open(folder + file.split(".")[0] + ".ncgr", "wb")
         new.close()
         new = open(folder + file.split(".")[0] + ".ncgr", "ab")

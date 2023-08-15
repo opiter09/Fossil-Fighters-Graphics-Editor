@@ -3,7 +3,7 @@ import os
 import subprocess
 import sys
 
-def run():
+def run(rom):
     folder = sys.argv[1].split("\\")[-1][0:-4]
     d = []
     for root, dirs, files in os.walk("motion_" + folder):
@@ -51,6 +51,8 @@ def run():
 
 
     dv = [ "image_archive", "image_big_archive", "image_cleaning_archive" ]
+    if (rom == "ffc"):
+        dv = [ "image_bitmap_archive", "image_credit_archive", "image_map_archive" ]
     for val2 in dv:
         for root, dirs, files in os.walk("image_" + folder + "/" + val2):
             for file in files:
@@ -74,6 +76,6 @@ def run():
         print("image/" + val2 + " Done")
 
     os.rename(folder, "NDS_UNPACK")
-    subprocess.run([ "dslazy.bat", "PACK", folder + "2.nds" ])
+    subprocess.run([ "dslazy.bat", "PACK", folder + "_2.nds" ])
     os.rename("NDS_UNPACK", folder)
-    subprocess.run([ "xdelta3-3.0.11-x86_64.exe", "-e", "-f", "-s", folder + ".nds", folder + "2" + ".nds", folder + "2" + ".xdelta" ])
+    subprocess.run([ "xdelta3-3.0.11-x86_64.exe", "-e", "-f", "-s", folder + ".nds", folder + "_2" + ".nds", folder + "_2" + ".xdelta" ])

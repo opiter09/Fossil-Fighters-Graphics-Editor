@@ -13,3 +13,4 @@ if you can't tell what it is, don't mess with it.
 - NitroPaint:  https://github.com/Garhoogin/NitroPaint/releases
 - FFTool: https://github.com/jianmingyong/Fossil-Fighters-Tool
 - NDSTool: https://github.com/devkitPro/ndstool (this is a later version; the one used here came without a license as part of DSLazy)
+- xdelta: https://github.com/jmacd/xdelta-gpl

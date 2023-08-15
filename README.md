@@ -4,3 +4,6 @@ convert the graphics. The converted files must then be edited with NitroPaint: h
 your ROM onto start.exe again, and as long as the three folders it made are still there, it will rebuild you a new ROM.
 
 To download this, if you are confused, press the Green "Code" button in the top right, then choose "Download ZIP."
+
+NOTE: None of the graphics have names or anything, they're just numbers. To make things a little easier, however, every directory has a file named "combo.txt," which
+lists all of the non-arc files in motion and image, along with what sprites and palettes they use. This should make matching things up much easier.

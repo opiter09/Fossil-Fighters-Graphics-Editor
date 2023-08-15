@@ -126,7 +126,7 @@ if (os.path.exists("image_" + folder) == False):
     for root, dirs, files in os.walk(folder + "data/image"):
         for file in files:
             if (file.endswith("_archive") == True) and (file.endswith(".json") == False):
-                forbidden = ["image_big_archive"]
+                forbidden = ["image_big_archive", "image_archive"]
                 if (rom == "ff1") or (file not in forbidden):
                     os.mkdir("image_" + folder + file)
                     subprocess.run(["fftool.exe", os.path.join(root, file) ])

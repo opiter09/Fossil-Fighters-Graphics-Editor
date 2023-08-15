@@ -2,6 +2,7 @@ import combo
 import convert
 import finish
 import os
+import shutil
 import subprocess
 import sys
 
@@ -101,6 +102,10 @@ if (os.path.exists("image_" + folder) == False):
                             convert.toNitro("image_" + folder + file + "/", os.path.join(root2, file2), file2, None,
                                 palList, imgList, True)
     os.rename(folder + "data/image/bin/", "image_" + folder + "bin/")
+    os.remove("image_" + folder + "bin/image_archive/meta.json")
+    shutil.copyfile("meta_image.json", "image_" + folder + "bin/image_archive/meta.json")
+    os.remove("image_" + folder + "bin/image_cleaning_archive/meta.json")
+    shutil.copyfile("meta_cleaning.json", "image_" + folder + "bin/image_cleaning_archive/meta.json")    
     check = 1
 
 if (check == 0):

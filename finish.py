@@ -76,4 +76,4 @@ def run():
     os.rename(folder, "NDS_UNPACK")
     subprocess.run([ "dslazy.bat", "PACK", folder + "2.nds" ])
     os.rename("NDS_UNPACK", folder)
-    subprocess.run([ "xdelta3-3.0.11-x86_64.exe", "-e", "-s", folder + ".nds", folder + "2" + ".nds", folder + "2" + ".xdelta" ])
+    subprocess.run([ "xdelta3-3.0.11-x86_64.exe", "-e", "-f", "-s", folder + ".nds", folder + "2" + ".nds", folder + "2" + ".xdelta" ])

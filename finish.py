@@ -26,7 +26,7 @@ def run():
                     if (file.endswith(".nclr") == True):
                         header = 40
                     elif (file.endswith(".ncgr") == True):
-                        header = 44
+                        header = 48
                     else:
                         header = 36
                     f = open("motion_" + folder + "/" + val + "/bin/" + val2 + "/" + file[0:-5] + ".bin", "rb")
@@ -57,7 +57,7 @@ def run():
                 if (file.endswith(".nclr") == True):
                     header = 40
                 elif (file.endswith(".ncgr") == True):
-                    header = 44
+                    header = 48
                 else:
                     header = 36
                 os.remove("image_" + folder + "/bin/" + val2 + "/" + file[0:-5] + ".bin")

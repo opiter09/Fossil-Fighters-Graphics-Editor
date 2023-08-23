@@ -8,3 +8,10 @@ image_*
 KASEKI*
 *.bat
 *.zip
+*.xdelta
+NDS_UNPACK*
+*.ml1
+*.sav
+*.nds
+rerun.py
+re2.py

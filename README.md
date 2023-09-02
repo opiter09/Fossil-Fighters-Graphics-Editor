@@ -9,7 +9,10 @@ NOTE: None of the graphics have names or anything, they're just numbers. To make
 lists all of the non-arc files in motion and image, along with what sprites and palettes they use. You can thus match things up this way, but remember the golden rule:
 if you can't tell what it is, don't mess with it.
 
-# Source Code:
+# Warning
+Technically, this program is all set up to handle FFC. However, for unknown reasons, it currently crashes at the VMM screen, so stick to FF1 for now.
+
+# Source Codes
 - NitroPaint:  https://github.com/Garhoogin/NitroPaint/releases
 - FFTool: https://github.com/jianmingyong/Fossil-Fighters-Tool
 - NDSTool: https://github.com/devkitPro/ndstool (this is a later version; the one used here came without a license as part of DSLazy)

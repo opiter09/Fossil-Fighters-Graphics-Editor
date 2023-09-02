@@ -139,9 +139,6 @@ if (os.path.exists("image_" + folder) == False):
                                 convert.toNitro("image_" + folder + file + "/", os.path.join(root2, file2), file2, None,
                                     palDict[file], imgDict[file], True)
     os.rename(folder + "data/image/bin/", "image_" + folder + "bin/")
-    if (rom == "ffc"):
-        os.remove("./image_" + folder + "bin/image_archive/meta.json")
-        shutil.copyfile("./meta_image_ffc.json", "./image_" + folder + "bin/image_archive/meta.json")
     check = 1
 
 if (check == 0):

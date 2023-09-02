@@ -44,9 +44,17 @@ def run(rom):
                         new.write(start)
                     new.write(reading2[header:])
                     new.close()
-            os.remove(folder + "/data/motion/" + val + "/" + val2)
-            subprocess.run([ "fftool.exe", "compress", "motion_" + folder + "/" + val + "/bin/" + val2, "-o",
-                folder + "/data/motion/" + val + "/" + val2 ])
+            try:
+                os.rename("motion_" + folder + "/" + val + "/bin/" + val2 + "/meta.json",
+                    "motion_" + folder + "/" + val + "/bin/" + val2 + "/metaz.json")
+            except:
+                pass
+            try:
+                os.remove(folder + "/data/motion/" + val + "/" + val2)
+            except:
+                pass
+            subprocess.run([ "fftool.exe", "compress", "motion_" + folder + "/" + val + "/bin/" + val2, "-c", "Rle", "-c", "None",
+                "-m", "32768", "-o", folder + "/data/motion/" + val + "/" + val2 ])
             print("motion/" + val + "/" + val2 + " Done")
 
 
@@ -72,8 +80,16 @@ def run(rom):
                 f2.close()
                 new.write(reading2[header:])
                 new.close()
-        os.remove(folder + "/data/image/" + val2)
-        subprocess.run([ "fftool.exe", "compress", "image_" + folder + "/bin/" + val2, "-o", folder + "/data/image/" + val2 ])
+        try:
+            os.rename("image_" + folder + "/bin/" + val2 + "/meta.json", "image_" + folder + "/bin/" + val2 + "/metaz.json")
+        except:
+            pass
+        try:
+            os.remove(folder + "/data/image/" + val2)
+        except:
+            pass
+        subprocess.run([ "fftool.exe", "compress", "image_" + folder + "/bin/" + val2,  "-c", "Rle", "-c", "None",
+            "-m", "32768", "-o", folder + "/data/image/" + val2 ])
         print("image/" + val2 + " Done")
 
     os.rename(folder, "NDS_UNPACK")

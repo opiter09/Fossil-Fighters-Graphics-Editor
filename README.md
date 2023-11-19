@@ -11,6 +11,9 @@ NOTE: None of the graphics have names or anything, they're just numbers. To make
 file named "combo.txt," which lists all of the non-arc files in motion and image, along with what sprites and palettes they use. You can
 thus match things up this way, but remember the golden rule: if you can't tell what it is, don't mess with it.
 
+NOTE 2: If you are planning on creating your own graphics using NitroPaint's "Create BG" feature, make sure to uncheck the "Compress"
+button in the import menu, or it will not appear properly in-game.
+
 # Source Codes
 - NitroPaint:  https://github.com/Garhoogin/NitroPaint/releases
 - FFTool: https://github.com/jianmingyong/Fossil-Fighters-Tool

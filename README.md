@@ -16,7 +16,7 @@ thus match things up this way, but remember the golden rule: if you can't tell w
 button in the import menu, or it will not appear properly in-game.
 
 3. If the graphics you see in NitroPaint look correct, but scrambled, try changing the value of the "Width" drop-down menu under
-the image.
+the image. If it looks to be totally gibberish, first try checking or unchecking the "8bpp" option.
 
 # Source Codes
 - NitroPaint:  https://github.com/Garhoogin/NitroPaint/releases

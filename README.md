@@ -7,12 +7,16 @@ smaller than the original.
 
 To download this, if you are confused, press the Green "Code" button in the top right, then choose "Download ZIP."
 
-NOTE: None of the graphics have names or anything, they're just numbers. To make things a little easier, however, every directory has a
+# Notes
+1. None of the graphics have names or anything, they're just numbers. To make things a little easier, however, every directory has a
 file named "combo.txt," which lists all of the non-arc files in motion and image, along with what sprites and palettes they use. You can
 thus match things up this way, but remember the golden rule: if you can't tell what it is, don't mess with it.
 
-NOTE 2: If you are planning on creating your own graphics using NitroPaint's "Create BG" feature, make sure to uncheck the "Compress"
+2. If you are planning on creating your own graphics using NitroPaint's "Create BG" feature, make sure to uncheck the "Compress"
 button in the import menu, or it will not appear properly in-game.
+
+3. If the graphics you see in NitroPaint look correct, but scrambled, try changing the value of the "Width" drop-down menu under
+the image.
 
 # Source Codes
 - NitroPaint:  https://github.com/Garhoogin/NitroPaint/releases

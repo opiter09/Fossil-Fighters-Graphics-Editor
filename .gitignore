@@ -6,7 +6,7 @@
 motion_*
 image_*
 KASEKI*
-*.bat
+start.bat
 *.zip
 *.xdelta
 NDS_UNPACK*

@@ -4,7 +4,7 @@ import subprocess
 import sys
 
 def run(rom):
-    folder = sys.argv[1].split("\\")[-1][0:-4]
+    folder = "NDS_UNPACK"
     d = []
     for root, dirs, files in os.walk("motion_" + folder):
         for k in dirs:
@@ -92,7 +92,8 @@ def run(rom):
             "-m", "32768", "-o", folder + "/data/image/" + val2 ])
         print("image/" + val2 + " Done")
 
-    os.rename(folder, "NDS_UNPACK")
-    subprocess.run([ "dslazy.bat", "PACK", folder + "_2.nds" ])
-    os.rename("NDS_UNPACK", folder)
-    subprocess.run([ "xdelta3-3.0.11-x86_64.exe", "-e", "-f", "-s", folder + ".nds", folder + "_2" + ".nds", folder + "_2" + ".xdelta" ])
+    # os.rename(folder, "NDS_UNPACK")
+    subprocess.run([ "dslazy.bat", "PACK", "out.nds" ])
+    # os.rename("NDS_UNPACK", folder)
+    folder = sys.argv[1].split("\\")[-1][0:-4]
+    subprocess.run([ "xdelta3-3.0.11-x86_64.exe", "-e", "-f", "-s", folder + ".nds", "out.nds", "out.xdelta" ])

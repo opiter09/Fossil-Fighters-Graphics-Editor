@@ -14,11 +14,11 @@ if (test == ord("Y")):
     rom = "ff1"
 else:
     rom = "ffc"
-folder = sys.argv[1].split("\\")[-1][0:-4] + "/"
+folder = "NDS_UNPACK" + "/"
 
 if (os.path.exists(folder) == False):
     subprocess.run([ "dslazy.bat", "UNPACK", sys.argv[1] ])
-    os.rename("NDS_UNPACK", folder)
+    # os.rename("NDS_UNPACK", folder)
     check = 1
 
 if (os.path.exists("motion_" + folder) == False):

@@ -1,9 +1,10 @@
 # Fossil-Fighters-Graphics-Editor
+You MUST put the ROM in the same folder as the exe, or it won't work.
+
 This is just a nice tool to make editing Fossil Fighters graphics easy. All you have to do is drag your ROM onto start.exe, and the code
-will split it apart and convert the graphics. You MUST put the ROM in the same folder as the exe, or it won't work. The converted files can
-then be edited with NitroPaint, provided here for convenience. When you are done, you just drag your ROM onto start.exe again, and as
-long as the three folders it made are still there, it will rebuild you a new ROM. Due to how ndstool works, this new ROM will aways be
-smaller than the original.
+will split it apart and convert the graphics. The converted files can then be edited with NitroPaint, provided here for convenience. When
+you are done, you just drag your ROM onto start.exe again, and as long as the three folders it made are still there, it will rebuild you
+a new ROM. Due to how ndstool works, this new ROM will aways be smaller than the original.
 
 To download this, if you are confused, press the Green "Code" button in the top right, then choose "Download ZIP."
 

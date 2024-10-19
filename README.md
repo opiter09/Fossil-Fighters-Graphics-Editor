@@ -22,7 +22,7 @@ button in the import menu, or it will not appear properly in-game.
 the image. If it looks to be totally gibberish, first try checking or unchecking the "8bpp" option.
 
 # Source Codes
-- NitroPaint: https://github.com/Garhoogin/NitroPaint/releases
+- NitroPaint: https://github.com/Garhoogin/NitroPaint
 - FFTool: https://github.com/jianmingyong/Fossil-Fighters-Tool
 - NDSTool: https://github.com/devkitPro/ndstool (this is a later version; the one used here came without a license as part of DSLazy)
 - xdelta: https://github.com/jmacd/xdelta-gpl

@@ -62,7 +62,7 @@ while True:
             elif (len(bigDictEnergy[val][k]) > 0):
                 inp.append(bigDictEnergy[val][k][-1])
         subprocess.run(inp)
-        print(bigDictEnergy[val]["pal"])
+        # print(bigDictEnergy[val]["pal"])
 
 
     

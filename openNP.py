@@ -3,9 +3,34 @@ import sys
 import subprocess
 import FreeSimpleGUI as psg
 
+layout = [
+    [ psg.Button("Image", key = "image") ],
+    [ psg.Button("Motion", key = "motion") ],
+    [ psg.Button("Both", key = "both") ]
+]
+
+window = psg.Window("", layout, grab_anywhere = True, resizable = True, font = "-size 12")
+
+locList = []
+while True:
+    event, values = window.read()
+    # See if user wants to quit or window was closed
+    if (event == psg.WINDOW_CLOSED) or (event == "Quit"):
+        break
+    elif (event == "image"):
+        locList = ["./image_NDS_UNPACK"]
+        break
+    elif (event == "motion"):
+        locList = ["./motion_NDS_UNPACK"]
+        break
+    elif (event == "both"):
+        locList = ["./image_NDS_UNPACK", "./motion_NDS_UNPACK"]
+        break
+window.close()
+
 bigDictEnergy = {}
 
-for loc in ["./image_NDS_UNPACK", "./motion_NDS_UNPACK"]:
+for loc in locList:
     for root, dirs, files in os.walk(loc):
         for file in files:
             if (file == "combo.txt"):
@@ -39,16 +64,16 @@ for loc in ["./image_NDS_UNPACK", "./motion_NDS_UNPACK"]:
 
 keys = list(bigDictEnergy.keys()).copy()
 keys.sort()
-layout = [
+layout2 = [
     [ psg.Text("Combo:", size = 7), psg.DropDown(keys, key = "file", default_value = keys[0]) ],
     [ psg.Text("Sprite:", size = 7), psg.DropDown(list(range(1, 100)), key = "num", default_value = 1) ],
     [ psg.Button("Open", key = "open") ]
 ]
 
-window = psg.Window("", layout, grab_anywhere = True, resizable = True, font = "-size 12")
+window2 = psg.Window("", layout2, grab_anywhere = True, resizable = True, font = "-size 12")
 
 while True:
-    event, values = window.read()
+    event, values = window2.read()
     # See if user wants to quit or window was closed
     if (event == psg.WINDOW_CLOSED) or (event == "Quit"):
         break
@@ -61,7 +86,7 @@ while True:
                 inp.append(bigDictEnergy[val][k][val2 - 1])
             elif (len(bigDictEnergy[val][k]) > 0):
                 inp.append(bigDictEnergy[val][k][-1])
-        subprocess.run(inp)
+        subprocess.Popen(inp)
         # print(bigDictEnergy[val]["pal"])
 
 

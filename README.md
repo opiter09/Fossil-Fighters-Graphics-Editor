@@ -6,7 +6,7 @@ will split it apart and convert the graphics. The converted files can then be ed
 you are done, you just drag your ROM onto start.exe again, and as long as the three folders it made are still there, it will rebuild you
 a new ROM. Due to how ndstool works, this new ROM will aways be smaller than the original.
 
-To download this, if you are confused, press the Green "Code" button in the top right, then choose "Download ZIP."
+To download this, if you are confused, press the Green "Code" button in the top right, then choose "Download ZIP".
 
 # Notes
 1. None of the graphics have names or anything, they're just numbers. To make things a little easier, however, every directory has a

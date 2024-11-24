@@ -28,6 +28,7 @@ while True:
         break
 window.close()
 
+forbidden = ["image_big_archive"]
 bigDictEnergy = {}
 
 for loc in locList:
@@ -56,14 +57,21 @@ for loc in locList:
                     elif (lines[i].startswith("Screen ARC") == True):
                         scrArc = lines[i].split(": ")[1]
                     elif (lines[i].endswith(".nclr") == True):
-                        bigDictEnergy[current]["pal"].append(os.path.join(root, file)[0:-9] + "/" + palArc + "/" + lines[i][1:])
+                        if (palArc not in forbidden):
+                            bigDictEnergy[current]["pal"].append(os.path.join(root, file)[0:-9] + "/" + palArc + "/" + lines[i][1:])
                     elif (lines[i].endswith(".ncgr") == True):
-                        bigDictEnergy[current]["img"].append(os.path.join(root, file)[0:-9] + "/" + imgArc + "/" + lines[i][1:])    
+                        if (imgArc not in forbidden):
+                            bigDictEnergy[current]["img"].append(os.path.join(root, file)[0:-9] + "/" + imgArc + "/" + lines[i][1:])    
                     elif (lines[i].endswith(".nscr") == True):
-                        bigDictEnergy[current]["scr"].append(os.path.join(root, file)[0:-9] + "/" + scrArc + "/" + lines[i][1:])  
+                        if (scrArc not in forbidden):
+                            bigDictEnergy[current]["scr"].append(os.path.join(root, file)[0:-9] + "/" + scrArc + "/" + lines[i][1:])  
 
 keys = list(bigDictEnergy.keys()).copy()
+for k in bigDictEnergy.keys():
+    if (len(bigDictEnergy[k]["pal"]) == 0):
+        keys.remove(k)
 keys.sort()
+
 layout2 = [
     [ psg.Text("Combo:", size = 7), psg.DropDown(keys, key = "file", default_value = keys[0]) ],
     [ psg.Text("Sprite:", size = 7), psg.DropDown(list(range(1, 100)), key = "num", default_value = 1) ],
@@ -80,14 +88,12 @@ while True:
     elif (event == "open"):
         val = values["file"]
         val2 = values["num"]
-        inp = ["NitroPaint.exe"]
+        inp = ["NitroPaint_old.exe"]
         for k in ["pal", "img", "scr"]:
             if (len(bigDictEnergy[val][k]) >= val2):
-                inp.append(bigDictEnergy[val][k][val2 - 1])
+                inp.append(bigDictEnergy[val][k][val2 - 1].replace("./", "./\\"))
             elif (len(bigDictEnergy[val][k]) > 0):
-                inp.append(bigDictEnergy[val][k][-1])
+                inp.append(bigDictEnergy[val][k][-1].replace("./", "./\\"))
         subprocess.Popen(inp)
-        # print(bigDictEnergy[val]["pal"])
-
 
     

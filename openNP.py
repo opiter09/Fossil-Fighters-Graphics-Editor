@@ -58,13 +58,13 @@ for loc in locList:
                         scrArc = lines[i].split(": ")[1]
                     elif (lines[i].endswith(".nclr") == True):
                         if (palArc not in forbidden):
-                            bigDictEnergy[current]["pal"].append(os.path.join(root, file)[0:-9] + "/" + palArc + "/" + lines[i][1:])
+                            bigDictEnergy[current]["pal"].append(os.path.join(root, file)[0:-10] + "/" + palArc + "/" + lines[i][1:])
                     elif (lines[i].endswith(".ncgr") == True):
                         if (imgArc not in forbidden):
-                            bigDictEnergy[current]["img"].append(os.path.join(root, file)[0:-9] + "/" + imgArc + "/" + lines[i][1:])    
+                            bigDictEnergy[current]["img"].append(os.path.join(root, file)[0:-10] + "/" + imgArc + "/" + lines[i][1:])    
                     elif (lines[i].endswith(".nscr") == True):
                         if (scrArc not in forbidden):
-                            bigDictEnergy[current]["scr"].append(os.path.join(root, file)[0:-9] + "/" + scrArc + "/" + lines[i][1:])  
+                            bigDictEnergy[current]["scr"].append(os.path.join(root, file)[0:-10] + "/" + scrArc + "/" + lines[i][1:])  
 
 keys = list(bigDictEnergy.keys()).copy()
 for k in bigDictEnergy.keys():
@@ -88,7 +88,7 @@ while True:
     elif (event == "open"):
         val = values["file"]
         val2 = values["num"]
-        inp = ["NitroPaint_old.exe"]
+        inp = ["NitroPaint.exe"]
         for k in ["pal", "img", "scr"]:
             if (len(bigDictEnergy[val][k]) >= val2):
                 inp.append(bigDictEnergy[val][k][val2 - 1].replace("./", "./\\"))

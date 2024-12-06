@@ -1,4 +1,5 @@
 import convert
+import FreeSimpleGUI as psg
 import os
 import subprocess
 import sys
@@ -61,7 +62,7 @@ def run(rom):
     dv = [ "image_archive", "image_big_archive", "image_cleaning_archive" ]
     if (rom == "ffc"):
         dv = dv + [ "image_bitmap_archive", "image_credit_archive", "image_map_archive", "image_object_archive" ]
-        dv.remove("image_big_archive")
+        # dv.remove("image_big_archive")
     for val2 in dv:
         for root, dirs, files in os.walk("image_" + folder + "/" + val2):
             for file in files:
@@ -88,8 +89,12 @@ def run(rom):
             os.remove(folder + "/data/image/" + val2)
         except:
             pass
-        subprocess.run([ "fftool.exe", "compress", "image_" + folder + "/bin/" + val2,  "-c", "Rle", "-c", "None",
-            "-m", "32768", "-o", folder + "/data/image/" + val2 ])
+        if (rom == "ffc") and (val2 == "image_archive"):
+            subprocess.run([ "fftool.exe", "compress", "image_" + folder + "/bin/" + val2,  "-c", "None", "-c", "None",
+                "-m", "32768", "-o", folder + "/data/image/" + val2 ])
+        else:
+            subprocess.run([ "fftool.exe", "compress", "image_" + folder + "/bin/" + val2,  "-c", "Rle", "-c", "None",
+                "-m", "32768", "-o", folder + "/data/image/" + val2 ])
         print("image/" + val2 + " Done")
 
     # os.rename(folder, "NDS_UNPACK")
@@ -97,3 +102,4 @@ def run(rom):
     # os.rename("NDS_UNPACK", folder)
     folder = sys.argv[1].split("\\")[-1][0:-4]
     subprocess.run([ "xdelta3-3.0.11-x86_64.exe", "-e", "-f", "-s", folder + ".nds", "out.nds", "out.xdelta" ])
+    psg.popup("You can now play out.nds!", font = "-size 12")

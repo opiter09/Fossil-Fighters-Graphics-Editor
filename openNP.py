@@ -28,7 +28,7 @@ while True:
         break
 window.close()
 
-forbidden = ["image_big_archive"]
+forbidden = []
 bigDictEnergy = {}
 
 for loc in locList:

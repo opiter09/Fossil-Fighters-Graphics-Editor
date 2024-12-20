@@ -8,6 +8,8 @@ a new ROM. Due to how ndstool works, this new ROM will aways be smaller than the
 
 To download this, if you are confused, press the Green "Code" button in the top right, then choose "Download ZIP".
 
+Furthermore, this is only designed for Windows. For Mac and Linux, I can only point you to WINE: https://www.winehq.org
+
 # Notes
 1. None of the graphics have names or anything, they're just numbers. To make things a little easier, however, every directory has a
 file named "combo.txt," which lists all of the non-arc files in motion and image, along with what sprites and palettes they use. You can

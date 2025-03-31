@@ -8,7 +8,9 @@ a new ROM. Due to how ndstool works, this new ROM will aways be smaller than the
 
 To download this, if you are confused, press the Green "Code" button in the top right, then choose "Download ZIP".
 
-Furthermore, this is only designed for Windows. For Mac and Linux, I can only point you to WINE: https://www.winehq.org
+Furthermore, this is only designed for Windows. For Mac and Linux, I can only point you to WINE: https://www.winehq.org. When running
+this through WINE, please use the command ``wine start.exe "ROMNAME.NDS"``, not ``wine start.exe`` alone (openNP.exe does not need
+this extra information, however).
 
 # Notes
 1. None of the graphics have names or anything, they're just numbers. To make things a little easier, however, every directory has a
